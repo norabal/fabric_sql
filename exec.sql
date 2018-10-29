@@ -1,1 +1,1 @@
-SELECT version();
+SELECT version() AS 'バージョン', 'test';
