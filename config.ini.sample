@@ -1,0 +1,17 @@
+[ssh]
+user = yourname
+
+# do not use '$HOME'
+config_path = ~/.ssh/config
+
+[hosts]
+# make 'step' empty if you don't have to access target server through step server.
+step    = step.server.jp
+
+# you can set multiple hosts using comma.
+stg     = stg1.server
+prod    = prod1.server,prod2.server
+
+[mysql]
+# command line sql command for your environment
+exec = mysql -u user_ro -ppassword -h standby.db -P 3306 -D customer -e "{}"
