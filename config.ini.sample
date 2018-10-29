@@ -1,7 +1,8 @@
 [ssh]
+# ssh login user name
 user = yourname
 
-# do not use '$HOME'
+# do not use '$HOME' as an expression. use '~' instead.
 config_path = ~/.ssh/config
 
 [hosts]
@@ -13,5 +14,5 @@ stg     = stg1.server
 prod    = prod1.server,prod2.server
 
 [mysql]
-# command line sql command for your environment
+# access command to mysql on target server
 exec = mysql -u user_ro -ppassword -h standby.db -P 3306 -D customer -e "{}"
