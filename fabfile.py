@@ -1,8 +1,9 @@
+import enum
 import os
 from datetime import datetime
 
 from fabric.api import run, env, task
-from fabric.colors import green, yellow
+from fabric.colors import yellow
 from fabric.contrib.console import confirm
 from fabric.utils import puts, error
 
@@ -19,6 +20,12 @@ env.ssh_config_path = adjust_for_expanduser(config.get('ssh', 'config_path'))
 env.use_ssh_config = True
 
 MYSQL_EXEC = config.get('mysql', 'exec')
+
+
+class Style(enum.Enum):
+    txt = {'message': 'result as text file', 'format': '.txt', 'encode': 'utf-8'}
+    csv = {'message': 'result as csv', 'format': '.csv', 'encode': 'utf-8'}
+    excel = {'message': 'result as csv for excel (shift_jis)', 'format': '_sjis.csv', 'encode': 'shift_jis'}
 
 
 @task()
@@ -47,39 +54,22 @@ def remote_sql():
     puts(disp_sql)
 
     if confirm('ok?', default=False):
-        output_dir = os.path.join(ROOT_DIR, 'output')
-        output_name = datetime.now().strftime('%Y%m%d%H%M%S')
         exec_sql = MYSQL_EXEC.format(sql)
         exec_sql_csv = "{} | sed -e 's/\t/,/g'".format(exec_sql, sql)
 
         try:
-            if not os.path.exists(output_dir):
-                os.mkdir(output_dir)
-
             if 'format' not in env:
                 result = run(exec_sql)
                 puts('\n' + result)
 
             elif 'txt' == env.format:
-                puts('result as text file')
-                output_path = os.path.join(output_dir, '{}.txt'.format(output_name))
-                result = run(exec_sql)
-                with open(output_path, 'w') as f:
-                    f.write(result)
+                get_sql_result(exec_sql, Style.txt)
 
             elif 'csv' == env.format:
-                puts(green('result as csv'))
-                output_path = os.path.join(output_dir, '{}.csv'.format(output_name))
-                result = run(exec_sql_csv)
-                with open(output_path, 'w') as f:
-                    f.write(result)
+                get_sql_result(exec_sql_csv, Style.csv)
 
             elif 'excel' == env.format:
-                puts(green('result as csv for excel (shift_jis)'))
-                output_path = os.path.join(output_dir, '{}_sjis.csv'.format(output_name))
-                result = run(exec_sql_csv)
-                with open(output_path, 'w', encoding='shift_jis') as f:
-                    f.write(result)
+                get_sql_result(exec_sql_csv, Style.excel)
 
             else:
                 raise ValueError('choose proper format: [txt, csv, excel]')
@@ -88,3 +78,18 @@ def remote_sql():
             error('something wrong happened: {}'.format(err))
 
     puts('Bye')
+
+
+def get_sql_result(sql, style):
+    puts(style.value.get('encode'))
+
+    output_dir = os.path.join(ROOT_DIR, 'output')
+    if not os.path.exists(output_dir):
+        os.mkdir(output_dir)
+
+    output_name = datetime.now().strftime('%Y%m%d%H%M%S')
+    output_path = os.path.join(output_dir, output_name + style.value.get('format'))
+
+    result = run(sql)
+    with open(output_path, 'w', encoding=style.value.get('encode')) as f:
+        f.write(result)
