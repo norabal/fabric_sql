@@ -58,7 +58,7 @@ def remote_sql():
 
             if 'format' not in env:
                 result = run(exec_sql)
-                puts(result)
+                puts('\n' + result)
 
             elif 'txt' == env.format:
                 puts('result as text file')
@@ -82,7 +82,7 @@ def remote_sql():
                     f.write(result)
 
             else:
-                raise ValueError('chose proper format: [txt, csv, excel]')
+                raise ValueError('choose proper format: [txt, csv, excel]')
 
         except Exception as err:
             error('something wrong happened: {}'.format(err))
