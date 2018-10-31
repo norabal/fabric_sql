@@ -8,14 +8,14 @@ from fabric.contrib.console import confirm
 from fabric.utils import puts, error
 
 from definitions import ROOT_DIR, CONFIG_PATH
-from util import adjust_for_expanduser, get_config
+from util import adjust_expanduser, get_config
 
 config = get_config(CONFIG_PATH)
 
 env.user = config.get('ssh', 'user')
 env.hosts = config.get('hosts', env.dest).split(',') if 'dest' in env else None
 env.gateway = config.get('hosts', 'step', fallback=None)
-env.ssh_config_path = adjust_for_expanduser(config.get('ssh', 'config_path'))
+env.ssh_config_path = adjust_expanduser(config.get('ssh', 'config_path'))
 env.use_ssh_config = True
 
 MYSQL_EXEC = config.get('mysql', 'exec')
