@@ -3,7 +3,7 @@
 ## Description
 
 Get sql execution result as .txt and csv(UTG-8 or shift_jis for excel format).
-Available for python3.x
+Available for python3.6+
 
 
 ***DEMO:***

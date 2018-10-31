@@ -79,7 +79,7 @@ def remote_sql():
     puts('Bye')
 
 
-def get_sql_result(sql, style):
+def get_sql_result(sql: str, style: Style) -> None:
     puts(style.value.get('encode'))
 
     output_dir = os.path.join(ROOT_DIR, 'output')
