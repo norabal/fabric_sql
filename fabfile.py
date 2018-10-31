@@ -7,9 +7,8 @@ from fabric.colors import yellow
 from fabric.contrib.console import confirm
 from fabric.utils import puts, error
 
-from config import get_config
 from definitions import ROOT_DIR, CONFIG_PATH
-from util import adjust_for_expanduser
+from util import adjust_for_expanduser, get_config
 
 config = get_config(CONFIG_PATH)
 
