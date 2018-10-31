@@ -1,6 +1,6 @@
-import enum
 import os
 from datetime import datetime
+from enum import Enum
 
 from fabric.api import run, env, task
 from fabric.colors import yellow
@@ -21,7 +21,7 @@ env.use_ssh_config = True
 MYSQL_EXEC = config.get('mysql', 'exec')
 
 
-class Style(enum.Enum):
+class Style(Enum):
     txt = {'message': 'result as text file', 'format': '.txt', 'encode': 'utf-8'}
     csv = {'message': 'result as csv', 'format': '.csv', 'encode': 'utf-8'}
     excel = {'message': 'result as csv for excel (shift_jis)', 'format': '_sjis.csv', 'encode': 'shift_jis'}
