@@ -1,28 +1,27 @@
-import enum
 import os
 from datetime import datetime
+from enum import Enum
 
 from fabric.api import run, env, task
 from fabric.colors import yellow
 from fabric.contrib.console import confirm
 from fabric.utils import puts, error
 
-from config import get_config
 from definitions import ROOT_DIR, CONFIG_PATH
-from util import adjust_for_expanduser
+from util import adjust_expanduser, get_config
 
 config = get_config(CONFIG_PATH)
 
 env.user = config.get('ssh', 'user')
 env.hosts = config.get('hosts', env.dest).split(',') if 'dest' in env else None
 env.gateway = config.get('hosts', 'step', fallback=None)
-env.ssh_config_path = adjust_for_expanduser(config.get('ssh', 'config_path'))
+env.ssh_config_path = adjust_expanduser(config.get('ssh', 'config_path'))
 env.use_ssh_config = True
 
 MYSQL_EXEC = config.get('mysql', 'exec')
 
 
-class Style(enum.Enum):
+class Style(Enum):
     txt = {'message': 'result as text file', 'format': '.txt', 'encode': 'utf-8'}
     csv = {'message': 'result as csv', 'format': '.csv', 'encode': 'utf-8'}
     excel = {'message': 'result as csv for excel (shift_jis)', 'format': '_sjis.csv', 'encode': 'shift_jis'}
@@ -80,7 +79,7 @@ def remote_sql():
     puts('Bye')
 
 
-def get_sql_result(sql, style):
+def get_sql_result(sql: str, style: Style) -> None:
     puts(style.value.get('encode'))
 
     output_dir = os.path.join(ROOT_DIR, 'output')
