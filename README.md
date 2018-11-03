@@ -10,6 +10,14 @@ Available for python3.6+
 
 ![result](https://github.com/norabal/fabric_sql/blob/media/demo.gif)
 
+![demo01](https://github.com/norabal/fabric_sql/blob/media/demo01.gif)
+
+![demo02](https://github.com/norabal/fabric_sql/blob/media/demo02.gif)
+
+![demo03](https://github.com/norabal/fabric_sql/blob/media/demo03.gif)
+
+![demo04](https://github.com/norabal/fabric_sql/blob/media/demo04.gif)
+
 ## Requirement
 
 - Python 3.6.6 or above
