@@ -8,7 +8,7 @@ Available for python3.6+
 
 ***DEMO:***
 
-now preparing...
+![result](https://github.com/norabal/fabric_sql/blob/media/demo.gif)
 
 ## Requirement
 
