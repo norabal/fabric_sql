@@ -18,6 +18,12 @@ Available for python3.6+
 
 ![demo04](https://github.com/norabal/fabric_sql/blob/media/demo04.gif)
 
+![demo05](https://github.com/norabal/fabric_sql/blob/media/demo05.gif)
+
+![demo06](https://github.com/norabal/fabric_sql/blob/media/demo06.gif)
+
+![demo07](https://github.com/norabal/fabric_sql/blob/media/demo07.gif)
+
 ## Requirement
 
 - Python 3.6.6 or above
