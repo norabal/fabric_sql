@@ -12,17 +12,17 @@ Available for python3.6+
 
 <img src="https://github.com/norabal/fabric_sql/blob/media/demo01.gif" data-canonical-src="https://github.com/norabal/fabric_sql/blob/media/demo01.gif" width="580" />
 
-![demo02](https://github.com/norabal/fabric_sql/blob/media/demo02.gif)
+<img src="https://github.com/norabal/fabric_sql/blob/media/demo02.gif" data-canonical-src="https://github.com/norabal/fabric_sql/blob/media/demo02.gif" width="580" />
 
-![demo03](https://github.com/norabal/fabric_sql/blob/media/demo03.gif)
+<img src="https://github.com/norabal/fabric_sql/blob/media/demo03.gif" data-canonical-src="https://github.com/norabal/fabric_sql/blob/media/demo03.gif" width="580" />
 
-![demo04](https://github.com/norabal/fabric_sql/blob/media/demo04.gif)
+<img src="https://github.com/norabal/fabric_sql/blob/media/demo04.gif" data-canonical-src="https://github.com/norabal/fabric_sql/blob/media/demo04.gif" width="580" />
 
-![demo05](https://github.com/norabal/fabric_sql/blob/media/demo05.gif)
+<img src="https://github.com/norabal/fabric_sql/blob/media/demo05.gif" data-canonical-src="https://github.com/norabal/fabric_sql/blob/media/demo05.gif" width="580" />
 
-![demo06](https://github.com/norabal/fabric_sql/blob/media/demo06.gif)
+<img src="https://github.com/norabal/fabric_sql/blob/media/demo06.gif" data-canonical-src="https://github.com/norabal/fabric_sql/blob/media/demo06.gif" width="580" />
 
-![demo07](https://github.com/norabal/fabric_sql/blob/media/demo07.gif)
+<img src="https://github.com/norabal/fabric_sql/blob/media/demo07.gif" data-canonical-src="https://github.com/norabal/fabric_sql/blob/media/demo07.gif" width="580" />
 
 ## Requirement
 
