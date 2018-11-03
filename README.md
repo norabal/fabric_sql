@@ -10,7 +10,7 @@ Available for python3.6+
 
 ![result](https://github.com/norabal/fabric_sql/blob/media/demo.gif)
 
-![demo01](https://github.com/norabal/fabric_sql/blob/media/demo01.gif)
+![demo01](https://github.com/norabal/fabric_sql/blob/media/demo01.gif | width=580)
 
 ![demo02](https://github.com/norabal/fabric_sql/blob/media/demo02.gif)
 
