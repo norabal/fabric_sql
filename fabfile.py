@@ -53,7 +53,7 @@ def remote_sql():
     puts(disp_sql)
 
     if confirm('ok?', default=False):
-        exec_sql = MYSQL_EXEC.format(sql)
+        exec_sql = MYSQL_EXEC.format(sql).replace('`', '\\\`')  # to deal with reserved words
         exec_sql_csv = "{} | sed -e 's/\t/,/g'".format(exec_sql, sql)
 
         try:
